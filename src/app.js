@@ -6,8 +6,8 @@ import LoginForm from './components/LoginForm'
 
 
 class App extends Component {
-    state = {loggedIn: false }
-    componentWillMount() { 
+    state = { loggedIn: false }
+    componentWillMount() {
         firebase.initializeApp({
             apiKey: 'AIzaSyCVsR8A9MzWWOIwUfCvlnTbs-EUNC0OeGY',
             authDomain: 'auth-ea25d.firebaseapp.com',
@@ -20,7 +20,7 @@ class App extends Component {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ loggedIn: true });
-            }else {
+            } else {
                 this.setState({ loggedIn: false });
             }
         });
@@ -30,7 +30,7 @@ class App extends Component {
         if (this.state.loggedIn) {
             return (
                 <Button>
-                    LogOut
+                    Logout
                 </Button>
             );
         }
@@ -41,9 +41,9 @@ class App extends Component {
         return (
             <View>
                 <Header headerText="Authentication" />
-             {this.renderContent()}   
+                {this.renderContent()}
             </View>
         );
     }
 }
-export default App; 
+export default App;    
